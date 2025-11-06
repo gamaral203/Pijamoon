@@ -6,7 +6,7 @@ O objetivo é criar uma aplicação web simples, mas completa, que exibe e geren
 🚀 Tecnologias utilizadas
 🧠 Back-end
 
-Java 17+
+Java 21+
 
 Spring Boot
 
