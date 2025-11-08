@@ -1,62 +1,94 @@
-<dependencies>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<!-- Criação de API REST -->
-	<dependency>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.Pijamoon</groupId>
+	<artifactId>pijamoon-backend</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Pijamoon Backend</name>
+	<description>Backend da aplicação Pijamoon (API de produtos e pedidos)</description>
+
+	<properties>
+		<java.version>17</java.version>
+		<spring.boot.version>3.3.4</spring.boot.version>
+	</properties>
+
+	<!-- Herda configurações padrão do Spring Boot -->
+	<parent>
 		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-web</artifactId>
-	</dependency>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.4</version>
+		<relativePath/>
+	</parent>
 
-	<!-- Conexão com banco de dados usando JPA -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
-	</dependency>
+	<dependencies>
 
-	<!-- Driver do PostgreSQL (ou pode trocar por MySQL se quiser) -->
-	<dependency>
-		<groupId>org.postgresql</groupId>
-		<artifactId>postgresql</artifactId>
-		<scope>runtime</scope>
-	</dependency>
+		<!-- Criação de API REST -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
-	<!-- Lombok (para reduzir código repetitivo) -->
-	<dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
-		<optional>true</optional>
-	</dependency>
+		<!-- Spring Security (para poder liberar rotas ou autenticar usuários futuramente) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 
-	<!-- Validação de campos (ex: nome, e-mail, preço, etc.) -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-validation</artifactId>
-	</dependency>
+		<!-- JPA (mesmo que ainda não use banco, já deixa preparado) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 
-	<!-- Spring Security (opcional, mas útil pra login e autenticação) -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-security</artifactId>
-	</dependency>
+		<!-- Banco em memória H2 (para testes e rodar sem SQL externo) -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
-	<!-- H2 (banco em memória, bom pra testes locais) -->
-	<dependency>
-		<groupId>com.h2database</groupId>
-		<artifactId>h2</artifactId>
-		<scope>runtime</scope>
-	</dependency>
+		<!-- Lombok (para reduzir getters/setters e construtores) -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 
-	<!-- DevTools (atualiza o projeto automaticamente quando salva o código) -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-devtools</artifactId>
-		<scope>runtime</scope>
-	</dependency>
+		<!-- Validação de dados (ex: @NotNull, @Email, etc.) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
 
-	<!-- Testes -->
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-test</artifactId>
-		<scope>test</scope>
-	</dependency>
+		<!-- DevTools (recarrega o projeto automaticamente) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
-</dependencies>
+		<!-- Dependência para testes -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
