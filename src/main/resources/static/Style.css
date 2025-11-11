@@ -308,6 +308,7 @@ a {
     padding: 20px;
     text-align: center;
     margin: 20px;
+    margin-bottom: 8rem;
 }
 
 .card h1 {
@@ -357,106 +358,73 @@ a {
     fill: #2C5EA8 /* cor da curva */
 }
 
+/* FOOTER */
 
-/*FORMULARIO*/
+footer {
+    background-color: black;
+    width: 100%;
+    height:100%;
+}
 
- label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-    }
+.footers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      font-family: inherit;
-    }
+footer>div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    button {
-      width: 100%;
-      background-color: #25d366;
-      color: white;
-      border: none;
-      padding: 0.9rem;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+footer .logo {
+    display: flex;
+    align-items: center;
+}
 
-    button:hover {
-      background-color: #1ebd5a;
-    }
+footer .logo img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
 
+footer .logo h1 {
+    font-size: 40px;
+    color:#7FB3F4;
+}
 
-    /* CONTATO -PAGINA2*/
+footer .logo span {
+    color: #FFD86B;
+}
 
-    .contato-container {
-      margin-top: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
+.footer1, .footer2, .footer3 {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 40px;
+    width: 300px;
+}
 
-    .contato-container h1 {
-      font-size: 60px;
-      color: #2C5EA8;
-      margin-bottom: 10px;
-    }
+.footer2 h1{
+    color: #FFD86B;
+    margin-top: 40px;
+}
 
-    .contato-container p {
-      font-size: 22px;
-      color: #333;
-      max-width: 700px;
-      margin-bottom: 40px;
-    }
+.footer2 p, .footer1 p {
+    margin-top: 10px;
+    font-size: 18px;
+}
 
-    .formulario {
-      background-color: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      padding: 2rem;
-      width: 100%;
-      max-width: 500px;
-    }
+.footer3 h1{
+    color:#FFD86B;
+    margin-top: 40px;
+}
 
-    .formulario label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-      color: #2A2A2A;
-      text-align: left;
-    }
+.icons-footer {
+    font-size: 40px;
+    margin-top: 20px;
+}
 
-    .formulario input,
-    .formulario textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      font-family: inherit;
-    }
-
-    .formulario button {
-      width: 100%;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      padding: 0.9rem;
-      border-radius: 999px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .formulario button:hover {
-      background-color: #1EBE5C;
-      transform: scale(1.03);
-    }
