@@ -1,6 +1,6 @@
 package com.Pijamoon.pijamoon_backend.Service;
 
-import com.Pijamoon.pijamoon_backend.Model.Produto;
+import com.Pijamoon.pijamoon_backend.model.Produto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

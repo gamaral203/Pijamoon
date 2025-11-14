@@ -1,4 +1,4 @@
-package com.Pijamoon.pijamoon_backend.Model;
+package com.Pijamoon.pijamoon_backend.model;
 
 public class Produto {
 private long id;
