@@ -5,41 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pijamoon</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="style.responsive.css">
     <script src="https://kit.fontawesome.com/79b775074c.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
-    <div class="navbar">
-        <div class="container">
-            <div class="logo">
-                <img src="media/logo.png" alt="logo">
-                <h1>Pija<span>Moon</span></h1>
-            </div>
-            <nav class="menu-desktop">
-                <ul>
-                    <a href="#home">
-                        <li>Home</li>
-                    </a>
-                    <a href="#sobre">
-                        <li>Sobre</li>
-                    </a>
-                    <a href="#colecao">
-                        <li>Coleções</li>
-                    </a>
-                    <a href="#beneficios">
-                        <li>Beneficios</li>
-                    </a>
-                    <a  href="https://wa.me/5574999693274?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20pijamas" target="_blank">
-                        <li> Contato</li>
-                    </a>
-                </ul>
-            </nav>
-            <div class="item">
-                <img src="media/cart.png" alt="cart">
-            </div>
-        </div>  <!-- CONTAINER -->
-    </div> <!--NAVBAR-->
+    <nav class="navbar">
+  <div class="container">
+    
+    <div class="logo">
+      <img src="media/logo.png" alt="logo">
+      <h1>Pija<span>moon</span></h1>
+    </div>
+
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#colecao">Coleção</a></li>
+      <li><a href="#beneficios">Benefícios</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+
+    <div class="iconsmenu">
+      <img src="media/cart.png" />
+    </div>
+
+    <!-- BOTÃO HAMBÚRGUER -->
+    <div class="mobile-menu-icon">
+      <button onclick="menuShow()">
+        <img class="icon" src="media/menu.png">
+      </button>
+    </div>
+  </div>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu">
+      <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#colecao">Coleção</a></li>
+      <li><a href="#beneficios">Benefícios</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </div>
+
+</nav>
 </header>
 
 <main>
@@ -272,6 +282,7 @@
   });
 </script>
 
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -506,3 +506,92 @@ footer .logo span {
   gap: 2rem;
   padding: 2rem;
 }
+
+.mobile-menu-icon button {
+    background: none;
+    border: none;
+}
+
+.mobile-menu-icon img {
+    width: 40px;
+    cursor: pointer;
+}
+
+/* Esconde no desktop */
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    background-color: #1E2A38;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.mobile-menu ul li {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.mobile-menu ul li a {
+    font-size: 22px;
+    color: white;
+}
+
+.mobile-menu.open {
+    display: block;
+}
+
+/* === AQUI COMEÇA RESPONSIVIDADE === */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        height: 120px;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    .iconsmenu {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+        margin-right: 20px;
+    }
+
+    .navbar .logo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .navbar .logo h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 390px) {
+
+    .navbar {
+        height: 110px;
+    }
+
+    .navbar .logo img {
+        width: 85px;
+        height: 85px;
+    }
+
+    .navbar .logo h1 {
+        font-size: 26px;
+    }
+
+    .mobile-menu ul li a {
+        font-size: 20px;
+        padding: 5px 0;
+    }
+}
