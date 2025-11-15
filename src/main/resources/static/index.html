@@ -10,46 +10,42 @@
 </head>
 <body>
 <header>
-    <nav class="navbar">
+<div class="navbar">
   <div class="container">
     
-    <div class="logo">
-      <img src="media/logo.png" alt="logo">
-      <h1>Pija<span>moon</span></h1>
-    </div>
+        <div class="logo">
+            <img src="media/logo.png" alt="logo">
+            <h1>Pija<span>moon</span></h1>
+        </div>
 
-    <ul class="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#colecao">Coleção</a></li>
-      <li><a href="#beneficios">Benefícios</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
+    <nav class="menu">
+        <ul class="nav-list">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="#sobre">Sobre</a>
+            </li>
+            <li>
+                <a href="#colecao">Coleção</a>
+            </li>
+            <li>
+                <a href="#beneficios">Benefícios</a>
+            </li>
+            <li>
+                <a href="https://wa.me/5574999693274?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20pijamas">Contato</a>
+            </li>
+        </ul>
+    </nav>
 
     <div class="iconsmenu">
       <img src="media/cart.png" />
     </div>
 
     <!-- BOTÃO HAMBÚRGUER -->
-    <div class="mobile-menu-icon">
-      <button onclick="menuShow()">
-        <img class="icon" src="media/menu.png">
-      </button>
+    <div class="menumobile">
+      <img src="media/menu.png" alt="">
     </div>
-  </div>
-
-  <!-- MENU MOBILE -->
-  <div class="mobile-menu">
-      <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#colecao">Coleção</a></li>
-      <li><a href="#beneficios">Benefícios</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </div>
-
-</nav>
 </header>
 
 <main>
@@ -259,30 +255,6 @@
 
 </main>
 
-<script>
-  // Seleciona todos os produtos da página
-  const produtos = document.querySelectorAll(".product");
-
-  produtos.forEach(produto => {
-    produto.addEventListener("click", () => {
-      // Captura os dados diretamente dos atributos do HTML
-      const dados = {
-        nome: produto.dataset.nome,
-        preco: produto.dataset.preco,
-        descricao: produto.dataset.descricao,
-        imagem: produto.dataset.imagem
-      };
-
-      // Salva no localStorage (memória temporária do navegador)
-      localStorage.setItem("produtoSelecionado", JSON.stringify(dados));
-
-      // Redireciona para a página de produto
-      window.location.href = "produto.html";
-    });
-  });
-</script>
-
 <script src="script.js"></script>
-
 </body>
 </html>

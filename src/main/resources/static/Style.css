@@ -26,6 +26,15 @@ a {
     color: #F3F4F8;
 }
 
+.menumobile {
+        display: none;
+        z-index: 1000;
+        position: absolute;
+        top: 50px;
+        right: 25px;
+        cursor: pointer;
+    }
+
 .container {
     max-width: 1440px;
     margin-left: auto;
@@ -79,16 +88,18 @@ a {
     cursor: pointer;
 }
 
-.navbar ul li:hover {
-    transform: translateY(-5px);
-    transition: all 0.5s ease;
+.navbar .menu ul li:hover {
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
     font-weight: bold;
-    color: #FFD86B;
 }
 
-.navbar .item img {
-    width: 50px;
-    height: 50px;
+header .container .menu ul.nav-list > li > a:hover { color:#FFD86B !important; }
+
+
+.navbar .iconsmenu img {
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
@@ -208,7 +219,7 @@ a {
 
 .coluna {
     display: grid;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 4rem 1rem;
 }
 
@@ -223,7 +234,7 @@ a {
 
 .coluna-4 {
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    padding:1000px;
 }
 
 .product {
@@ -502,96 +513,8 @@ footer .logo span {
 
 .coluna {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(4, 1fr));
+  gap: 24px;
   padding: 2rem;
-}
-
-.mobile-menu-icon button {
-    background: none;
-    border: none;
-}
-
-.mobile-menu-icon img {
-    width: 40px;
-    cursor: pointer;
-}
-
-/* Esconde no desktop */
-.mobile-menu {
-    display: none;
-}
-
-.mobile-menu ul {
-    display: flex;
-    flex-direction: column;
-    background-color: #1E2A38;
-    width: 100%;
-    padding: 20px 0;
-}
-
-.mobile-menu ul li {
-    text-align: center;
-    padding: 15px 0;
-}
-
-.mobile-menu ul li a {
-    font-size: 22px;
-    color: white;
-}
-
-.mobile-menu.open {
-    display: block;
-}
-
-/* === AQUI COMEÇA RESPONSIVIDADE === */
-
-@media (max-width: 900px) {
-
-    .navbar {
-        height: 120px;
-    }
-
-    .navbar ul {
-        display: none;
-    }
-
-    .iconsmenu {
-        display: none;
-    }
-
-    .mobile-menu-icon {
-        display: block;
-        margin-right: 20px;
-    }
-
-    .navbar .logo img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .navbar .logo h1 {
-        font-size: 30px;
-    }
-}
-
-@media (max-width: 390px) {
-
-    .navbar {
-        height: 110px;
-    }
-
-    .navbar .logo img {
-        width: 85px;
-        height: 85px;
-    }
-
-    .navbar .logo h1 {
-        font-size: 26px;
-    }
-
-    .mobile-menu ul li a {
-        font-size: 20px;
-        padding: 5px 0;
-    }
+  margin-left: 10px;
 }

@@ -1,10 +1,56 @@
-/* ===========================================
-   RESPONSIVIDADE OFICIAL PIJAMOON
-   Desenvolvido para funcionar com seu style.css atual
-   =========================================== */
-
-/* ========== MOBILE (ATÉ 480PX) ========== */
+/* Início: limitar todo este arquivo a telas pequenas */
+@media (max-width: 900px) {
 @media (max-width: 480px) {
+
+    /*MENU MOBILE*/
+
+header, .navbar {
+  overflow: visible !important;
+}
+
+/* posiciona o mobile-menu abaixo da navbar e acima do resto do conteúdo */
+.mobile-menu {
+  position: absolute;   /* fica posicionado em relação à navbar (que é fixed) */
+  top: 100%;            /* imediatamente abaixo da altura da navbar */
+  left: 0;
+  width: 100%;
+  display: none;        /* padrão: escondido */
+  z-index: 10001;       /* maior que o z-index da navbar (999) */
+  background-color: #1E2A38; /* ou a cor que quiser */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* quando aberto, exibe corretamente */
+.mobile-menu.open {
+  display: block;
+}
+
+/* caso use .menu ul (ou .menu-desktop ul) - padroniza posicionamento e z-index */
+.menu ul,
+.menu-desktop ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;      /* será mostrado pela classe active */
+  z-index: 10001;
+  background-color: #1E2A38;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* mostrar quando ativo (JS adiciona .active) */
+.menu ul.active,
+.menu-desktop ul.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* evita que algum ancestor 'apague' visual do menu por overflow */
+.container, .navbar > .container {
+  overflow: visible !important;
+}
+
+
 
     /* NAVBAR */
     .navbar {
@@ -224,31 +270,55 @@
     }
 
     /* NAVBAR */
-    .navbar {
-        height: 110px;
-        padding: 0 10px;
+
+    .menu ul {
+        flex-direction: column;
+        display:none;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        z-index: 9999;
     }
 
-    .navbar .logo img {
-        width: 90px;
-        height: 90px;
+    
+
+    .menu ul li {
+        text-align: center;
+        padding: 20px;
     }
 
-    .navbar .logo h1 {
-        font-size: 22px;
+    .menu ul li a {
+    color: white;
+    font-size: 22px;
+}
+
+    .menu ul li a:hover {
+    background-color: #004161;
+    border-radius: 5px;
+    color: white;
+}
+
+    .menu ul.active {
+    display: flex;
+}
+
+    header {
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
     }
 
-    .navbar ul {
-        gap: 10px;
-        font-size: 16px;
+    .menumobile {
+        display: block;
     }
 
-    .navbar .item img {
-        width: 32px;
-        height: 32px;
+    .menumobile img {
+        width: 36px;
+        height: 36px;
     }
-
-
+}
+ 
     /* HEADER */
     .header-bg {
         height: 70vh;
@@ -410,4 +480,5 @@
     footer .logo h1 {
         font-size: 28px;
     }
-}
+
+} /* fim do @media (max-width:900px) */
