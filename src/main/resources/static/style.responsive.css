@@ -1,5 +1,69 @@
+/* ===========================
+   📺 900px até 1200px
+   =========================== */
+@media (min-width: 900px) and (max-width: 1200px) {
+
+    /* HEADER / BG */
+    .header-bg {
+        height: 80vh;                 /* evita cortar tanto a imagem */
+        margin-top: 150px;            /* respeita a altura da navbar fixa */
+        background-position: center right; /* foca mais o lado da modelo */
+        background-size: cover;
+        display: flex;
+        align-items: center;
+    }
+
+    .container .header-text {
+        max-width: 55%;
+        height: auto;
+    }
+
+    .header-text h1 {
+        margin-top: 0;                /* tira aquele espaçamento gigante */
+        font-size: 64px;              /* menor pra caber melhor nessa faixa */
+        line-height: 1.1;
+         margin-left: 20px;
+         margin-top: 20px;
+    }
+
+    .header-text p {
+        font-size: 22px;
+        margin-left: 20px;
+    }
+
+    /* COLEÇÃO – pra não esmagar tudo */
+    .coluna-4 {
+        padding: 2rem 1rem;           /* sobrescreve o padding gigante */
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        gap: 24px;
+        margin-left:18%;
+    }
+
+    .product .img-product img {
+        width: 260px;
+        height: 360px;
+        object-fit: cover;
+    }
+
+    .card {
+        height: 400px;
+    }
+}
+
+
+
+
 /* Início: limitar todo este arquivo a telas pequenas */
+@media (max-width: 910px) {
+
+
 @media (max-width: 900px) {
+
+    .navbar .iconsmenu {
+    position:relative;
+}
+
 @media (max-width: 480px) {
 
     /*MENU MOBILE*/
@@ -7,6 +71,7 @@
 header, .navbar {
   overflow: visible !important;
 }
+
 
 /* posiciona o mobile-menu abaixo da navbar e acima do resto do conteúdo */
 .mobile-menu {
@@ -136,7 +201,7 @@ header, .navbar {
     }
 
     .card {
-        width: 90%;
+        width: 100%;
         height: auto;
         padding: 20px;
     }
@@ -150,11 +215,7 @@ header, .navbar {
     }
 
     /* FOOTER */
-    .footers {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
+    
 
     .footer1, .footer2, .footer3 {
         width: 100%;
@@ -207,69 +268,7 @@ header, .navbar {
         display: none; /* menu desktop some */
     }
 
-    /* HEADER */
-    .header-bg {
-        height: 70vh;
-        padding: 1.5rem;
-    }
-
-    .header-text h1 {
-        font-size: 55px;
-    }
-
-    .header-text p {
-        font-size: 22px;
-    }
-
-    /* COLEÇÃO */
-    .coluna-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .product .img-product img {
-        width: 280px;
-        height: 380px;
-    }
-
-    /* BENEFÍCIOS */
-    .card {
-        width: 70%;
-    }
-
-    /* PÁGINA DE PRODUTO */
-    .product-detail {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .product-image img {
-        width: 75%;
-    }
-}
-
-/* ========== DESKTOP GRANDE (1200PX+) ========== */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1300px;
-    }
-}
-
-
-/* ===========================
-   📱 RESPONSIVIDADE 390PX
-   =========================== */
-@media (max-width: 390px) {
-
-    * {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    body {
-        overflow-x: hidden !important;
-    }
-
-    /* NAVBAR */
+     /* NAVBAR */
 
     .menu ul {
         flex-direction: column;
@@ -317,12 +316,123 @@ header, .navbar {
         width: 36px;
         height: 36px;
     }
+
+
+
+    /* HEADER */
+    .header-bg {
+        height: 70vh;
+        padding: 1.5rem;
+    }
+
+    .header-text h1 {
+        font-size: 55px;
+    }
+
+    .header-text p {
+        font-size: 22px;
+    }
+
+    /* COLEÇÃO */
+    .coluna-4 {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 5%;
+    }
+
+    .product .img-product img {
+        width: 280px;
+        height: 380px;
+    }
+
+    /* BENEFÍCIOS */
+    .card {
+        width: 100%;
+        
+    }
+
+    /* PÁGINA DE PRODUTO */
+    .product-detail {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-image img {
+        width: 75%;
+    }
+}
+
+
+
+
+
+/* ===========================
+   📱 RESPONSIVIDADE 390PX
+   =========================== */
+@media (max-width: 390px) {
+
+    * {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
+
+    /* NAVBAR */
+
+    .menu ul {
+        flex-direction: column;
+        display:none;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    
+
+    .menu ul li {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .menu ul li a {
+    color: white;
+    font-size: 22px;
+}
+
+    .menu ul li a:hover {
+    background-color: #004161;
+    border-radius: 5px;
+    color: var(#F8F9FB);
+}
+
+    .menu ul.active {
+    display: flex;
+}
+
+    header {
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .menumobile {
+        display: block;
+    }
+
+    .menumobile img {
+        width: 36px;
+        height: 36px;
+    }
 }
  
     /* HEADER */
     .header-bg {
-        height: 70vh;
-        margin-top: 115px;
+        height: 80vh;
+        margin-top: 100px;
         background-position: center;
         background-size: cover;
         padding: 0 15px;
@@ -379,11 +489,15 @@ header, .navbar {
     }
 
     .p-product {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .p-price {
-        font-size: 20px;
+        font-size: 14px;
+    }
+
+    .rate p{
+        font-size: 14px;
     }
 
     .coluna-4 {
@@ -399,17 +513,18 @@ header, .navbar {
 
 
     /* BENEFÍCIOS */
+
+
     .cards {
         flex-direction: column;
         margin-top: -20px;
-        margin-bottom: 50px;
     }
 
     .card {
         width: 90%;
         height: auto;
         padding: 20px;
-        margin-bottom: 1px;
+        margin-bottom: 30px;
     }
 
     .card h1 {
@@ -481,4 +596,6 @@ header, .navbar {
         font-size: 28px;
     }
 
-} /* fim do @media (max-width:900px) */
+ }/* fim do @media (max-width:900px) */
+
+}

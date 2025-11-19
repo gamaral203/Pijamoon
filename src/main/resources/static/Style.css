@@ -30,8 +30,8 @@ a {
         display: none;
         z-index: 1000;
         position: absolute;
-        top: 50px;
-        right: 25px;
+        top: 24px;
+        right: 10px;
         cursor: pointer;
     }
 
@@ -96,6 +96,17 @@ a {
 
 header .container .menu ul.nav-list > li > a:hover { color:#FFD86B !important; }
 
+.navbar .iconsmenu {
+    display: flex;
+    position: absolute;
+    right: 60px;
+    z-index: 10000;
+    
+}
+
+.navbar .iconsmenu {
+    position:static;
+}
 
 .navbar .iconsmenu img {
     width: 40px;
