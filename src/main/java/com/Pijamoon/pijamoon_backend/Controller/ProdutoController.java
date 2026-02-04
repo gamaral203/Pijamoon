@@ -7,5 +7,4 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*") // permite requisições do front-end (HTML/CSS/JS)
 public class ProdutoController {
 
-
 }
