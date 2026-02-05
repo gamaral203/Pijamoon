@@ -1,4 +1,4 @@
-package com.Pijamoon.pijamoon_backend.Service;
+package com.Pijamoon.pijamoon_backend.service;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

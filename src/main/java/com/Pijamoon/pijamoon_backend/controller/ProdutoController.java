@@ -1,4 +1,4 @@
-package com.Pijamoon.pijamoon_backend.Controller;
+package com.Pijamoon.pijamoon_backend.controller;
 
 import org.springframework.web.bind.annotation.*;
 
