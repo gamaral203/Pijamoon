@@ -22,8 +22,8 @@ public class UserController {
 
     //Edita usuario
     @PutMapping("/editarcomID")
-    public String editarUsuarioId() {
-        return "Usuario editado com sucesso";
+    public UserModel editarUsuarioId(@RequestBody UserModel user) {
+        return userService.editarUsuarioId(user);
     }
 
 

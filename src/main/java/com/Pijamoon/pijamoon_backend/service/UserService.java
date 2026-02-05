@@ -13,7 +13,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    //Salvar Usuario no banco de dados
     public UserModel salvar(UserModel user) {
         return userRepository.save(user);
     }
+
 }
