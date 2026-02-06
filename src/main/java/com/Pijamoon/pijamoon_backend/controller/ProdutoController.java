@@ -1,5 +1,7 @@
 package com.Pijamoon.pijamoon_backend.controller;
 
+import com.Pijamoon.pijamoon_backend.model.ProdutoModel;
+import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -7,15 +9,22 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*") // permite requisições do front-end (HTML/CSS/JS)
 public class ProdutoController {
 
+    private ProdutoService produtoService;
+
+    public ProdutoController(ProdutoService produtoService) {
+        this.produtoService = produtoService;
+    }
 
     @PostMapping(name = "/adicionar")
     public String adicionarProduto(){
         return "produto adicionado com sucesso";
     }
 
-    @GetMapping(name = "/listar")
-    public String listar(){
-        return "produto listado com sucesso";
+    //Busca produto por id
+    @GetMapping(name = "/buscarPorId/{id}")
+    public ProdutoModel buscarPorId(@PathVariable Long id){
+        return produtoService.buscarPorId(id);
+
     }
     @PutMapping(name = "/editarPorID")
     public String editarComID(){

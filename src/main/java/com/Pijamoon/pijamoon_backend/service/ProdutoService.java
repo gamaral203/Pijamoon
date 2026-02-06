@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -16,10 +17,15 @@ public class ProdutoService {
     public ProdutoService(ProdutoRepository produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
+
     //Salvar Produto no banco de dados
     public ProdutoModel salvar(ProdutoModel produto) {
         return produtoRepository.save(produto);
     }
-
+    //Buscar Produto Por ID
+    public ProdutoModel buscarPorId(Long id) {
+        Optional<ProdutoModel> produto = produtoRepository.findById(id);
+        return produto.orElse(null);
+    }
 }
 
