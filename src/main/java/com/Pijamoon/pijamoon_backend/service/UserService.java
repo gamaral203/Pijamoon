@@ -22,7 +22,6 @@ public class UserService {
         return userRepository.save(user);
     }
         //Buscar por ID
-
         public UserModel listarPorId(Long id) {
             Optional<UserModel> user = userRepository.findById(id);
             return user.orElse(null);

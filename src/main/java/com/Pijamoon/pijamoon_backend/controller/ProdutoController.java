@@ -16,8 +16,8 @@ public class ProdutoController {
     }
 
     @PostMapping(name = "/adicionar")
-    public String adicionarProduto(){
-        return "produto adicionado com sucesso";
+    public ProdutoModel adicionarProduto(@RequestBody ProdutoModel produto) {
+        return produtoService.salvar(produto);
     }
 
     //Busca produto por id
