@@ -25,8 +25,11 @@ public class UserController {
     public UserModel editarUsuarioId(@RequestBody UserModel user) {
         return userService.editarUsuarioId(user);
     }
-
-
+    //Buscar por ID
+    @GetMapping("/buscarPorID{id}")
+    public UserModel listarPorId(@PathVariable Long id) {
+        return userService.listarPorId(id);
+    }
     //Deletar usuario
     @DeleteMapping("/deletar")
     public String deletarUsuario() {
