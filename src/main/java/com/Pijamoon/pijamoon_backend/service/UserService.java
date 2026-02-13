@@ -21,10 +21,12 @@ public class UserService {
     public UserModel salvar(UserModel user) {
         return userRepository.save(user);
     }
-        //Buscar por ID
-        public UserModel listarPorId(Long id) {
-            Optional<UserModel> user = userRepository.findById(id);
-            return user.orElse(null);
-        }
+
+
+    //Buscar por ID
+    public UserModel listarPorId(Long id) {
+        Optional<UserModel> user = userRepository.findById(id);
+        return user.orElse(null);
+    }
 
 }
