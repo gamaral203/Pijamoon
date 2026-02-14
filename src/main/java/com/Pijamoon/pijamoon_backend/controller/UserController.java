@@ -4,6 +4,8 @@ import com.Pijamoon.pijamoon_backend.model.UserModel;
 import com.Pijamoon.pijamoon_backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/usuarios")
 public class UserController {
@@ -29,6 +31,14 @@ public class UserController {
     @GetMapping("/buscarPorID{id}")
     public UserModel listarPorId(@PathVariable Long id) {
         return userService.listarPorId(id);
+    }
+
+    //Listar Todos
+    @GetMapping("listar")
+    public List<UserModel> listar() {
+       return userService.listarusuarios();
+
+
     }
     //Deletar usuario
     @DeleteMapping("/deletar")

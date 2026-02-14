@@ -28,5 +28,8 @@ public class UserService {
         Optional<UserModel> user = userRepository.findById(id);
         return user.orElse(null);
     }
+    public List<UserModel> listarusuarios() {
+        return userRepository.findAll();
+    }
 
 }
