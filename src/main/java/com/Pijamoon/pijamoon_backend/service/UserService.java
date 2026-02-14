@@ -28,8 +28,12 @@ public class UserService {
         Optional<UserModel> user = userRepository.findById(id);
         return user.orElse(null);
     }
+    //Lista todos os usuarios
     public List<UserModel> listarusuarios() {
         return userRepository.findAll();
     }
-
+   //Deletar usuario -- tem que ser void pois não precisa retornar nada pro usuário
+    public void deletarPorId(Long id) {
+        userRepository.deleteById(id);
+    }
 }

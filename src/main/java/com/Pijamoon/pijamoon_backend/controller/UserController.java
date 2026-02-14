@@ -34,17 +34,17 @@ public class UserController {
     }
 
     //Listar Todos
-    @GetMapping("listar")
+    @GetMapping("/listar")
     public List<UserModel> listar() {
        return userService.listarusuarios();
 
 
     }
     //Deletar usuario
-    @DeleteMapping("/deletar")
-    public String deletarUsuario() {
-        return "Usuario deletado com sucesso";
-    }
+    @DeleteMapping("/deletar/{id}")
+    public void deletarUsuario(@PathVariable Long id) {
+    userService.deletarPorId(id);
+   }
 
 }
 
