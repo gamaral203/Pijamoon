@@ -12,9 +12,9 @@ public class UserController {
 
     private UserService userService;
 
-   public UserController(UserService userService){
-       this.userService = userService;
-   }
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     //Criar usuario
     @PostMapping("/criar")
@@ -27,6 +27,7 @@ public class UserController {
     public String editarUsuarioId() {
         return "Editado";
     }
+
     //Buscar por ID
     @GetMapping("/buscarPorID{id}")
     public UserModel listarPorId(@PathVariable Long id) {
@@ -36,15 +37,15 @@ public class UserController {
     //Listar Todos
     @GetMapping("/listar")
     public List<UserModel> listar() {
-       return userService.listarusuarios();
-
+        return userService.listarusuarios();
 
     }
+
     //Deletar usuario
     @DeleteMapping("/deletar/{id}")
     public void deletarUsuario(@PathVariable Long id) {
-    userService.deletarPorId(id);
-   }
+        userService.deletarPorId(id);
+    }
 
 }
 

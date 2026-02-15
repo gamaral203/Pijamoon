@@ -22,10 +22,21 @@ public class ProdutoService {
     public ProdutoModel salvar(ProdutoModel produto) {
         return produtoRepository.save(produto);
     }
+
     //Buscar Produto Por ID
     public ProdutoModel buscarPorId(Long id) {
         Optional<ProdutoModel> produto = produtoRepository.findById(id);
         return produto.orElse(null);
+    }
+
+    //Listar produtos
+    public List<ProdutoModel> listarTodos() {
+        return produtoRepository.findAll();
+    }
+
+    //Deletar Produto
+    public void deletarPorId(Long id) {
+        produtoRepository.deleteById(id);
     }
 }
 

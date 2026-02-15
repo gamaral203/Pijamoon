@@ -4,6 +4,8 @@ import com.Pijamoon.pijamoon_backend.model.ProdutoModel;
 import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/produtos")
 @CrossOrigin(origins = "*") // permite requisições do front-end (HTML/CSS/JS)
@@ -15,23 +17,31 @@ public class ProdutoController {
         this.produtoService = produtoService;
     }
 
-    @PostMapping(name = "/adicionar")
+    @PostMapping("/adicionar")
     public ProdutoModel adicionarProduto(@RequestBody ProdutoModel produto) {
         return produtoService.salvar(produto);
     }
 
     //Busca produto por id
-    @GetMapping(name = "/buscarPorId/{id}")
-    public ProdutoModel buscarPorId(@PathVariable Long id){
+    @GetMapping("/buscarPorId/{id}")
+    public ProdutoModel buscarPorId(@PathVariable Long id) {
         return produtoService.buscarPorId(id);
 
     }
-    @PutMapping(name = "/editarPorID")
-    public String editarComID(){
+    //Listar todos os produtos
+    @GetMapping("listar")
+    public List<ProdutoModel> listar() {
+        return produtoService.listarTodos();
+    }
+
+    @PutMapping("/editarPorID")
+    public String editarComID() {
         return "produto editado com sucesso";
     }
-    @DeleteMapping(name = "/deletarPorID")
-        public String deletarPorid() {
-        return "Produto deletado";
+
+    //Deletar Produto
+    @DeleteMapping("/Deletarproduto/{id}")
+    public void deletarPorid(@PathVariable Long id) {
+        produtoService.deletarPorId(id);
     }
 }
