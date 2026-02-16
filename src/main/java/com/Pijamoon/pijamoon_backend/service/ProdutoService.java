@@ -1,5 +1,7 @@
 package com.Pijamoon.pijamoon_backend.service;
 
+import com.Pijamoon.pijamoon_backend.dto.ProdutoDTO;
+import com.Pijamoon.pijamoon_backend.mapper.ProdutoMapper;
 import com.Pijamoon.pijamoon_backend.model.ProdutoModel;
 import com.Pijamoon.pijamoon_backend.model.UserModel;
 import com.Pijamoon.pijamoon_backend.repository.ProdutoRepository;
@@ -13,14 +15,18 @@ import java.util.Optional;
 public class ProdutoService {
 
     private ProdutoRepository produtoRepository;
+    private ProdutoMapper produtoMapper;
 
-    public ProdutoService(ProdutoRepository produtoRepository) {
+    public ProdutoService(ProdutoRepository produtoRepository, ProdutoMapper produtoMapper) {
         this.produtoRepository = produtoRepository;
+        this.produtoMapper = produtoMapper;
     }
 
     //Salvar Produto no banco de dados
-    public ProdutoModel salvar(ProdutoModel produto) {
-        return produtoRepository.save(produto);
+    public ProdutoDTO salvar(ProdutoDTO produtoDTO) {
+        ProdutoModel produto = produtoMapper.map(produtoDTO);
+        produto =  produtoRepository.save(produto);
+        return produtoMapper.map(produto);
     }
 
     //Buscar Produto Por ID

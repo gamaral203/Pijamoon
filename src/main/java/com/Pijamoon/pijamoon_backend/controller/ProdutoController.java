@@ -1,5 +1,6 @@
 package com.Pijamoon.pijamoon_backend.controller;
 
+import com.Pijamoon.pijamoon_backend.dto.ProdutoDTO;
 import com.Pijamoon.pijamoon_backend.model.ProdutoModel;
 import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class ProdutoController {
     }
 
     @PostMapping("/adicionar")
-    public ProdutoModel adicionarProduto(@RequestBody ProdutoModel produto) {
+    public ProdutoDTO adicionarProduto(@RequestBody ProdutoDTO produto) {
         return produtoService.salvar(produto);
     }
 
