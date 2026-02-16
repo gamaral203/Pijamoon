@@ -34,9 +34,10 @@ public class ProdutoController {
         return produtoService.listarTodos();
     }
 
-    @PutMapping("/editarPorID")
-    public String editarComID() {
-        return "produto editado com sucesso";
+    //AtualizarProduto
+    @PutMapping("/atualizarproduto/{id}")
+    public ProdutoModel atualizarProduto(@PathVariable Long id, @RequestBody ProdutoModel produtoAtualizado) {
+        return produtoService.atualizarProduto(id, produtoAtualizado);
     }
 
     //Deletar Produto

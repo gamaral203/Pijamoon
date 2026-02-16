@@ -38,5 +38,13 @@ public class ProdutoService {
     public void deletarPorId(Long id) {
         produtoRepository.deleteById(id);
     }
+    //Editar produto
+    public ProdutoModel atualizarProduto(Long id, ProdutoModel produtoAtualizado) {
+       if (produtoRepository.existsById(id)){
+       produtoAtualizado.setId(id);
+       return produtoRepository.save(produtoAtualizado);
+       }
+        return null;
+    }
 }
 
