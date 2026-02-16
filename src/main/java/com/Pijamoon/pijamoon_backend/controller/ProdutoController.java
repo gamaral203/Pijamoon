@@ -29,8 +29,8 @@ public class ProdutoController {
 
     }
     //Listar todos os produtos
-    @GetMapping("listar")
-    public List<ProdutoModel> listar() {
+    @GetMapping("/listar")
+    public List<ProdutoModel> listarProdutos() {
         return produtoService.listarTodos();
     }
 
