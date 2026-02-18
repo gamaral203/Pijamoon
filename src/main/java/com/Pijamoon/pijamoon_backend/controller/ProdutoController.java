@@ -1,5 +1,6 @@
 package com.Pijamoon.pijamoon_backend.controller;
 
+import com.Pijamoon.pijamoon_backend.dto.ProdutoDTO;
 import com.Pijamoon.pijamoon_backend.model.ProdutoModel;
 import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
@@ -18,25 +19,26 @@ public class ProdutoController {
     }
 
     @PostMapping("/adicionar")
-    public ProdutoModel adicionarProduto(@RequestBody ProdutoModel produto) {
+    public ProdutoDTO adicionarProduto(@RequestBody ProdutoDTO produto) {
         return produtoService.salvar(produto);
     }
 
     //Busca produto por id
     @GetMapping("/buscarPorId/{id}")
-    public ProdutoModel buscarPorId(@PathVariable Long id) {
+    public ProdutoDTO buscarPorId(@PathVariable Long id) {
         return produtoService.buscarPorId(id);
 
     }
+
     //Listar todos os produtos
-    @GetMapping("listar")
-    public List<ProdutoModel> listar() {
+    @GetMapping("/listar")
+    public List<ProdutoDTO> listarProdutos() {
         return produtoService.listarTodos();
     }
 
     //AtualizarProduto
     @PutMapping("/atualizarproduto/{id}")
-    public ProdutoModel atualizarProduto(@PathVariable Long id, @RequestBody ProdutoModel produtoAtualizado) {
+    public ProdutoDTO atualizarProduto(@PathVariable Long id, @RequestBody ProdutoDTO produtoAtualizado) {
         return produtoService.atualizarProduto(id, produtoAtualizado);
     }
 
