@@ -2,6 +2,7 @@ package com.Pijamoon.pijamoon_backend.controller;
 
 import com.Pijamoon.pijamoon_backend.dto.UserDTO;
 import com.Pijamoon.pijamoon_backend.model.UserModel;
+import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import com.Pijamoon.pijamoon_backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +12,12 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UserController {
 
+    private final ProdutoService produtoService;
     private UserService userService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ProdutoService produtoService) {
         this.userService = userService;
+        this.produtoService = produtoService;
     }
 
     //Criar usuario
@@ -23,10 +26,10 @@ public class UserController {
         return userService.salvar(user);
     }
 
-    //Edita usuario
+    //Atualizar usuario
     @PutMapping("/editarcomID")
-    public String editarUsuarioId() {
-        return "Editado";
+    public UserDTO editarUsuarioId(@PathVariable Long id, @RequestBody UserDTO userAtualizado) {
+        return userService.editarPorId(id,userAtualizado);
     }
 
     //Buscar por ID
@@ -37,7 +40,7 @@ public class UserController {
 
     //Listar Todos
     @GetMapping("/listar")
-    public List<UserModel> listar() {
+    public List<UserDTO> listar() {
         return userService.listarusuarios();
 
     }

@@ -29,6 +29,7 @@ public class ProdutoController {
         return produtoService.buscarPorId(id);
 
     }
+
     //Listar todos os produtos
     @GetMapping("/listar")
     public List<ProdutoDTO> listarProdutos() {

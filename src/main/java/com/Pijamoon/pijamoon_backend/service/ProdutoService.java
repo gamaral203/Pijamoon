@@ -26,7 +26,7 @@ public class ProdutoService {
     //Criar Produto no banco de dados
     public ProdutoDTO salvar(ProdutoDTO produtoDTO) {
         ProdutoModel produto = produtoMapper.map(produtoDTO);
-        produto =  produtoRepository.save(produto);
+        produto = produtoRepository.save(produto);
         return produtoMapper.map(produto);
     }
 
@@ -49,16 +49,17 @@ public class ProdutoService {
     public void deletarPorId(Long id) {
         produtoRepository.deleteById(id);
     }
+
     //Atualizar produto
     public ProdutoDTO atualizarProduto(Long id, ProdutoDTO produtoDTO) {
         Optional<ProdutoModel> produtoExistente = produtoRepository.findById(id);
-       if (produtoExistente.isPresent()) {
-           ProdutoModel produtoAtualizado = produtoMapper.map(produtoDTO);
-           produtoAtualizado.setId(id);
-          ProdutoModel produtoSave = produtoRepository.save(produtoAtualizado);
-          return produtoMapper.map(produtoAtualizado);
-       }
-       return null;
+        if (produtoExistente.isPresent()) {
+            ProdutoModel produtoAtualizado = produtoMapper.map(produtoDTO);
+            produtoAtualizado.setId(id);
+            ProdutoModel produtoSave = produtoRepository.save(produtoAtualizado);
+            return produtoMapper.map(produtoAtualizado);
+        }
+        return null;
     }
 }
 

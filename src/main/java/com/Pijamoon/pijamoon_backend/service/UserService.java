@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -33,15 +34,31 @@ public class UserService {
     //Buscar por ID
     public UserDTO listarPorId(Long id) {
         Optional<UserModel> userPorId = userRepository.findById(id);
-        return userPorId.map(userMapper::map).orElse(null);    }
+        return userPorId.map(userMapper::map).orElse(null);
+    }
 
     //Lista todos os usuarios
-    public List<UserModel> listarusuarios() {
-        return userRepository.findAll();
+    public List<UserDTO> listarusuarios() {
+        List<UserModel> usuarios = userRepository.findAll();
+        return usuarios.stream()
+                .map(userMapper::map)
+                .collect(Collectors.toList());
     }
 
     //Deletar usuario -- tem que ser void pois não precisa retornar nada pro usuário
     public void deletarPorId(Long id) {
         userRepository.deleteById(id);
+    }
+
+    //Atualizar usuário
+    public UserDTO editarPorId(Long id,UserDTO userDTO) {
+        Optional<UserModel> userPorId = userRepository.findById(id);
+        if(userPorId.isPresent()){
+            UserModel userAtualizado = userMapper.map(userDTO);
+            userAtualizado.setId(id);
+            UserModel userAtualizadoAtualizado = userRepository.save(userAtualizado);
+            return userMapper.map(userAtualizadoAtualizado);
+        }
+        return null;
     }
 }
