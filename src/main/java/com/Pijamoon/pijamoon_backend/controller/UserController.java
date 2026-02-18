@@ -1,5 +1,6 @@
 package com.Pijamoon.pijamoon_backend.controller;
 
+import com.Pijamoon.pijamoon_backend.dto.UserDTO;
 import com.Pijamoon.pijamoon_backend.model.UserModel;
 import com.Pijamoon.pijamoon_backend.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class UserController {
 
     //Criar usuario
     @PostMapping("/criar")
-    public UserModel criarUsuario(@RequestBody UserModel user) {
+    public UserDTO criarUsuario(@RequestBody UserDTO user) {
         return userService.salvar(user);
     }
 
@@ -30,7 +31,7 @@ public class UserController {
 
     //Buscar por ID
     @GetMapping("/buscarPorID{id}")
-    public UserModel listarPorId(@PathVariable Long id) {
+    public UserDTO listarPorId(@PathVariable Long id) {
         return userService.listarPorId(id);
     }
 
