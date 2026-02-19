@@ -1,4 +1,4 @@
-package com.Pijamoon.pijamoon_backend.service;
+package com.Pijamoon.pijamoon_backend.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
