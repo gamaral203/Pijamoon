@@ -1,9 +1,12 @@
 package com.Pijamoon.pijamoon_backend.controller;
 
+import com.Pijamoon.pijamoon_backend.dto.ProdutoDTO;
 import com.Pijamoon.pijamoon_backend.dto.UserDTO;
 import com.Pijamoon.pijamoon_backend.model.UserModel;
 import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import com.Pijamoon.pijamoon_backend.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,35 +25,58 @@ public class UserController {
 
     //Criar usuario
     @PostMapping("/criar")
-    public UserDTO criarUsuario(@RequestBody UserDTO user) {
-        return userService.salvar(user);
+    public ResponseEntity<String> criarUsuario(@RequestBody UserDTO user) {
+        UserDTO userDTO = userService.salvar(user);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(" Usuario criado com sucesso: " + userDTO.getNome() + ",ID: " + userDTO.getId());
     }
 
     //Atualizar usuario
     @PutMapping("/editarcomID")
-    public UserDTO editarUsuarioId(@PathVariable Long id, @RequestBody UserDTO userAtualizado) {
-        return userService.editarPorId(id,userAtualizado);
+    public ResponseEntity<String> editarUsuarioId(@PathVariable Long id, @RequestBody UserDTO userAtualizado) {
+
+        UserDTO userNovo = userService.editarPorId(id, userAtualizado);
+
+        if (userAtualizado != null) {
+            return ResponseEntity.ok("Usuario atualizado com sucesso");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Usuário não encontrado");
+        }
     }
 
     //Buscar por ID
-    @GetMapping("/buscarPorID{id}")
-    public UserDTO listarPorId(@PathVariable Long id) {
-        return userService.listarPorId(id);
+    @GetMapping("/buscarPorID/{id}")
+    public ResponseEntity<?> listarPorId(@PathVariable Long id) {
+
+        UserDTO userDTO = userService.listarPorId(id);
+
+        if (userDTO != null) {
+            return ResponseEntity.ok(userDTO);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Usuário não encontrado");
+        }
     }
 
     //Listar Todos
     @GetMapping("/listar")
-    public List<UserDTO> listar() {
-        return userService.listarusuarios();
+    public ResponseEntity<List<UserDTO>> listar() {
+        List<UserDTO> produto = userService.listarusuarios();
+        return ResponseEntity.ok(produto);
 
     }
 
     //Deletar usuario
     @DeleteMapping("/deletar/{id}")
-    public void deletarUsuario(@PathVariable Long id) {
-        userService.deletarPorId(id);
+    public ResponseEntity<String> deletarUsuario(@PathVariable Long id) {
+        if (userService.listarPorId(id) != null) {
+            userService.deletarPorId(id);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body("Usuario deletado com sucesso");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Usuário não encontrado");
+        }
     }
-
 }
-
-
