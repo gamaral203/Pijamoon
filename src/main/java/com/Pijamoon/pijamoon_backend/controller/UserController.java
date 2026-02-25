@@ -5,6 +5,9 @@ import com.Pijamoon.pijamoon_backend.dto.UserDTO;
 import com.Pijamoon.pijamoon_backend.model.UserModel;
 import com.Pijamoon.pijamoon_backend.service.ProdutoService;
 import com.Pijamoon.pijamoon_backend.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +26,12 @@ public class UserController {
         this.produtoService = produtoService;
     }
 
-    //Criar usuario
+    @Operation(summary = "Cria um novo usuário", description = "Rota cria um novo usuário e insere no banco de dados")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "usuário criado com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Erro na criação do usuário")
+    })
+
     @PostMapping("/criar")
     public ResponseEntity<String> criarUsuario(@RequestBody UserDTO user) {
         UserDTO userDTO = userService.salvar(user);
@@ -31,7 +39,11 @@ public class UserController {
                 .body(" Usuario criado com sucesso: " + userDTO.getNome() + ",ID: " + userDTO.getId());
     }
 
-    //Atualizar usuario
+    @Operation(summary = "Altera Usuário por ID", description = "Rota altera o Usuário por seu id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuário alterado com sucesso!"),
+            @ApiResponse(responseCode = "404", description = "Usuário não encontrado,não foi possível alterar")
+    })
     @PutMapping("/editarcomID")
     public ResponseEntity<String> editarUsuarioId(@PathVariable Long id, @RequestBody UserDTO userAtualizado) {
 
@@ -45,7 +57,11 @@ public class UserController {
         }
     }
 
-    //Buscar por ID
+    @Operation(summary = "Busca o usuário por id", description = "Rota busca o usuário por seu id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "usuário encontrado com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "usuário não encontrado!")
+    })
     @GetMapping("/buscarPorID/{id}")
     public ResponseEntity<?> listarPorId(@PathVariable Long id) {
 
@@ -59,7 +75,11 @@ public class UserController {
         }
     }
 
-    //Listar Todos
+    @Operation(summary = "Lista todos os usuários", description = "Rota lista todos os usuários")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuários listados com sucesso!"),
+            @ApiResponse(responseCode = "400", description = "Usuários não encontrado!")
+    })
     @GetMapping("/listar")
     public ResponseEntity<List<UserDTO>> listar() {
         List<UserDTO> produto = userService.listarusuarios();
@@ -67,7 +87,7 @@ public class UserController {
 
     }
 
-    //Deletar usuario
+
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletarUsuario(@PathVariable Long id) {
         if (userService.listarPorId(id) != null) {
