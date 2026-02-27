@@ -1,44 +1,50 @@
+🛍️ Pijamoon
 
+Pijamoon é uma aplicação web de e-commerce desenvolvida com Java e Spring Boot, focada na venda de pijamas.
+O projeto foi criado com fins educacionais e para portfólio, simulando uma aplicação real com persistência em MySQL.
 
-Pijamoon é uma aplicação web de e-commerce desenvolvida com **Java e Spring Boot**, focada na venda de pijamas.  
-O projeto foi criado com fins educacionais e para portfólio, simulando uma aplicação real com **persistência em MySQL**.
+✨ Funcionalidades
 
----
+Listagem de produtos
 
-## 📌 Funcionalidades
+Cadastro de produtos
 
-- Listagem de produtos  
-- Cadastro de produtos  
-- Edição de produtos  
-- Remoção de produtos  
-- Persistência de dados em banco MySQL  
-- Interface web simples para interação com o sistema  
+Edição de produtos
 
----
+Remoção de produtos
 
-## 🛠️ Tecnologias Utilizadas
+Persistência de dados em banco MySQL
 
-- Java 17  
-- Spring Boot  
-- Spring Data JPA  
-- Hibernate  
-- MySQL  
-- Maven  
-- HTML  
-- CSS  
-- JavaScript  
+Interface web simples para interação com o sistema
 
----
+🛠️ Tecnologias Utilizadas
 
-## 🗄️ Banco de Dados
+Java 17
 
-O projeto utiliza **MySQL** como banco de dados relacional.
+Spring Boot
+
+Spring Data JPA
+
+Hibernate
+
+MySQL
+
+Maven
+
+HTML
+
+CSS
+
+JavaScript
+
+🗄️ Banco de Dados
+
+O projeto utiliza MySQL como banco de dados relacional.
 
 O Hibernate é responsável pelo mapeamento objeto-relacional (ORM) e pela criação e atualização automática das tabelas.
 
-### Exemplo de configuração (`application.properties`)
+Exemplo de configuração (application.properties)
 
-```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/pijamoon
 spring.datasource.username=SEU_USUARIO
 spring.datasource.password=SUA_SENHA
@@ -46,7 +52,8 @@ spring.datasource.password=SUA_SENHA
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-▶️ Como Executar o Projeto
+
+▶️ Execução
 Pré-requisitos
 
 Java 17 ou superior
@@ -55,40 +62,31 @@ MySQL
 
 Maven
 
-Passo a passo
-
-Clone o repositório:
+Passos
 
 git clone https://github.com/gamaral203/Pijamoon.git
 
-Crie o banco de dados no MySQL:
-
-CREATE DATABASE pijamoon;
-
-Configure o arquivo application.properties com suas credenciais do MySQL.
-
-Execute o projeto:
-
+cd Pijamoon
 mvn spring-boot:run
 
-Acesse no navegador:
-
+A aplicação estará disponível em:
 http://localhost:8080
+
 📂 Estrutura do Projeto
 
-controller → Controladores da aplicação
+controller
 
-service → Regras de negócio
+service
 
-repository → Acesso ao banco de dados
+repository
 
-model → Entidades JPA
+model
 
-resources → Arquivos de configuração e templates
+resources
 
-🚀 Próximas Melhorias
+🚀 Melhorias Futuras
 
-Autenticação e autorização de usuários (JWT)
+Autenticação de usuários
 
 Carrinho de compras
 
@@ -96,20 +94,13 @@ Painel administrativo
 
 Validações no front-end
 
-Interface responsiva
-
-Deploy em ambiente cloud
-
-🎯 Objetivo do Projeto
-
-Este projeto tem como objetivo praticar o desenvolvimento back-end com Spring Boot, o uso de banco de dados relacional (MySQL) e a construção de uma aplicação próxima a um cenário real, servindo como projeto de estudo e portfólio.
+Deploy em nuvem
 
 📄 Licença
 
-Este projeto está sob a licença MIT.
-Sinta-se livre para estudar, modificar e contribuir.
+MIT
 
 👨‍💻 Autor
 
-Desenvolvido por Gabriel Amaral e Riquelme Pereira
-🔗 GitHub: https://github.com/gamaral203
+Gabriel Amaral e Riquelme pereira
+https://github.com/gamaral203
