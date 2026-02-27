@@ -1,99 +1,115 @@
-🌙 Pijamoon
 
-Pijamoon é uma loja online de pijamas desenvolvida como projeto de integração entre back-end em Java (Spring Boot) e front-end em HTML, CSS e JavaScript.
-O objetivo é criar uma aplicação web simples, mas completa, que exibe e gerencia produtos conectados a uma API REST.
 
-🚀 Tecnologias utilizadas
-🧠 Back-end
+Pijamoon é uma aplicação web de e-commerce desenvolvida com **Java e Spring Boot**, focada na venda de pijamas.  
+O projeto foi criado com fins educacionais e para portfólio, simulando uma aplicação real com **persistência em MySQL**.
 
-Java 21+
+---
 
-Spring Boot
+## 📌 Funcionalidades
 
-Spring Web
+- Listagem de produtos  
+- Cadastro de produtos  
+- Edição de produtos  
+- Remoção de produtos  
+- Persistência de dados em banco MySQL  
+- Interface web simples para interação com o sistema  
 
-Spring Data JPA
+---
 
-Banco de dados H2 (em memória)
+## 🛠️ Tecnologias Utilizadas
+
+- Java 17  
+- Spring Boot  
+- Spring Data JPA  
+- Hibernate  
+- MySQL  
+- Maven  
+- HTML  
+- CSS  
+- JavaScript  
+
+---
+
+## 🗄️ Banco de Dados
+
+O projeto utiliza **MySQL** como banco de dados relacional.
+
+O Hibernate é responsável pelo mapeamento objeto-relacional (ORM) e pela criação e atualização automática das tabelas.
+
+### Exemplo de configuração (`application.properties`)
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/pijamoon
+spring.datasource.username=SEU_USUARIO
+spring.datasource.password=SUA_SENHA
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+▶️ Como Executar o Projeto
+Pré-requisitos
+
+Java 17 ou superior
+
+MySQL
 
 Maven
 
-Lombok
+Passo a passo
 
-🎨 Front-end
+Clone o repositório:
 
-HTML5
+git clone https://github.com/gamaral203/Pijamoon.git
 
-CSS3
+Crie o banco de dados no MySQL:
 
-JavaScript (consumo de API via fetch())
+CREATE DATABASE pijamoon;
 
-🗂 Estrutura do projeto
-/pijamoon-backend
-   ├── controller/
-   ├── model/
-   ├── repository/
-   ├── resources/
-   └── pom.xml
+Configure o arquivo application.properties com suas credenciais do MySQL.
 
-/pijamoon-frontend
-   ├── index.html
-   ├── css/
-   └── js/
-✨ Funcionalidades
+Execute o projeto:
 
-✅ Listagem de produtos (pijamas)
-✅ Cadastro de novos produtos via API
-✅ Comunicação entre front-end e back-end
-✅ Interface simples e responsiva
-✅ Banco de dados H2 com console para testes
-
-⚙ Como executar o projeto
-⿡ Clonar o repositório
-git clone https://github.com/seuusuario/pijamoon.git
-⿢ Rodar o back-end
-
-Entre na pasta do projeto Spring Boot:
-
-cd pijamoon-backend
 mvn spring-boot:run
 
-A API estará disponível em:
-👉 http://localhost:8080/api/pijamas
+Acesse no navegador:
 
-⿣ Rodar o front-end
+http://localhost:8080
+📂 Estrutura do Projeto
 
-Abra o arquivo index.html da pasta pijamoon-frontend direto no navegador
-ou use uma extensão como Live Server no VS Code.
+controller → Controladores da aplicação
 
-🧪 Teste rápido
+service → Regras de negócio
 
-Com o back-end rodando, acesse:
+repository → Acesso ao banco de dados
 
-http://localhost:8080/h2-console
+model → Entidades JPA
 
-Use o JDBC URL:
+resources → Arquivos de configuração e templates
 
-jdbc:h2:mem:testdb
+🚀 Próximas Melhorias
 
-Adicione alguns produtos manualmente e veja o front-end exibir os pijamas cadastrados automaticamente.
+Autenticação e autorização de usuários (JWT)
 
-💡 Próximos passos
+Carrinho de compras
 
-🛒 Implementar carrinho de compras
+Painel administrativo
 
-👤 Criar autenticação de usuários
+Validações no front-end
 
-🗄 Integrar com banco de dados real (MySQL/PostgreSQL)
+Interface responsiva
 
-☁ Hospedar back-end (Render/AWS) e front-end (Vercel/Netlify)
+Deploy em ambiente cloud
 
-📱 Tornar o site totalmente responsivo
+🎯 Objetivo do Projeto
 
-👨‍💻 Autores
+Este projeto tem como objetivo praticar o desenvolvimento back-end com Spring Boot, o uso de banco de dados relacional (MySQL) e a construção de uma aplicação próxima a um cenário real, servindo como projeto de estudo e portfólio.
 
-Gabriel Amaral – Back-end (Spring Boot)
+📄 Licença
 
-Riquelme Teixeira – Front-end (HTML, CSS, JS)
+Este projeto está sob a licença MIT.
+Sinta-se livre para estudar, modificar e contribuir.
 
-Projeto criado com fins educacionais e demonstrativos para a loja Pijamoon 🌙✨
+👨‍💻 Autor
+
+Desenvolvido por Gabriel Amaral e Riquelme Pereira
+🔗 GitHub: https://github.com/gamaral203
